@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables — overrideable by user settings ── */
+:root {
+  --c-brand:       99 102 241;   /* #6366f1 */
+  --c-brand-light: 129 140 248;  /* #818cf8 */
+  --c-brand-dark:  79  70 229;   /* #4f46e5 */
+  --font-size-base: 14px;
+  --app-bg: #0f0f23;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base);
+  }
+
+  body {
+    background-color: var(--app-bg);
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1a2e;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-50 rounded-2xl border border-gray-700/50 p-5;
+  }
+
+  .btn-primary {
+    @apply bg-brand hover:bg-brand-dark text-white font-medium px-4 py-2 rounded-xl transition-all duration-200 flex items-center gap-2 text-sm;
+  }
+
+  .btn-ghost {
+    @apply text-gray-400 hover:text-gray-100 hover:bg-white/5 px-3 py-2 rounded-xl transition-all duration-200 flex items-center gap-2 text-sm;
+  }
+
+  .btn-danger {
+    @apply bg-red-500/20 hover:bg-red-500/30 text-red-400 font-medium px-4 py-2 rounded-xl transition-all duration-200 flex items-center gap-2 text-sm border border-red-500/30;
+  }
+
+  .input {
+    @apply w-full bg-surface-200 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all;
+  }
+
+  .select {
+    @apply w-full bg-surface-200 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-gray-100 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 text-gray-400 hover:text-gray-100 hover:bg-white/5;
+  }
+
+  .nav-link.active {
+    @apply text-white bg-brand/20 border border-brand/30;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+  }
+
+  .modal {
+    @apply bg-surface-50 rounded-2xl border border-gray-700/50 w-full max-w-lg shadow-2xl animate-slide-up;
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-gray-100;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-gray-400 mb-1.5;
+  }
+}
+
+/* Prose for AI responses */
+.ai-prose p { @apply mb-3 leading-relaxed; }
+.ai-prose h1, .ai-prose h2, .ai-prose h3 { @apply font-semibold text-gray-100 mb-2 mt-4; }
+.ai-prose ul, .ai-prose ol { @apply pl-5 mb-3 space-y-1; }
+.ai-prose li { @apply text-gray-300; }
+.ai-prose code { @apply bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-brand-light; }
+.ai-prose pre { @apply bg-gray-900 p-4 rounded-xl overflow-auto mb-3; }
+.ai-prose pre code { @apply bg-transparent p-0; }
+.ai-prose strong { @apply text-gray-100 font-semibold; }
+.ai-prose blockquote { @apply border-l-2 border-brand pl-4 text-gray-400 italic; }

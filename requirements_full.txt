@@ -1,0 +1,4 @@
+# Full local development requirements (includes heavy OCR dependencies)
+# Install with: pip install -r requirements_full.txt
+-r requirements.txt
+easyocr>=1.7.0

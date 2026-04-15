@@ -1,0 +1,21 @@
+# ── StudyCore AI — Python dependencies ───────────────────────────────────────
+# This is the production requirements file (used by Render).
+# For local development with full OCR support, also install requirements_full.txt
+
+flask>=3.0.0
+flask-cors>=4.0.0
+python-dotenv>=1.0.0
+werkzeug>=3.0.0
+
+# AI
+google-genai>=1.0.0
+
+# Database (PostgreSQL / Supabase)
+psycopg2-binary>=2.9.9
+
+# OCR — lightweight only (Tesseract via system package)
+Pillow>=10.0.0
+pytesseract>=0.3.10
+
+# Production WSGI server
+gunicorn>=21.0.0

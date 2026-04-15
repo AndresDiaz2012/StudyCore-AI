@@ -1,0 +1,16 @@
+{
+  "name": "studycore-ai",
+  "version": "1.0.0",
+  "description": "StudyCore AI — Plataforma Educativa Inteligente",
+  "scripts": {
+    "install:all": "pip install -r requirements.txt && cd frontend && npm install",
+    "backend": "python -m backend.app",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently --names FLASK,VITE --prefix-colors blue,green \"python -m backend.app\" \"cd frontend && npm run dev\"",
+    "electron:dev": "concurrently --names FLASK,VITE,ELECTRON --prefix-colors blue,green,magenta \"python -m backend.app\" \"cd frontend && npm run dev\" \"cd frontend && wait-on http://localhost:5173 && npm run electron\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "wait-on": "^8.0.1"
+  }
+}

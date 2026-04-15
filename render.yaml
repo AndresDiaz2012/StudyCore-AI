@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: studycore-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 2 -k gthread --threads 4 --timeout 120 -b 0.0.0.0:$PORT "backend.app:create_app()"
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false          # Set this to your Supabase connection string
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false          # Your Vercel URL e.g. studycore.vercel.app
+      - key: FLASK_DEBUG
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.11.0"
